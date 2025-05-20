@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tentang</title>
+  <link rel="stylesheet" href="css.css" />
+</head>
+<body>
+
+  <header class="main-header">
+  <div class="container">
+    <h1 class="logo"><i class="fas fa-code"></i> Iam</h1>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="about.html" class="nav-item">About</a></li>
+        <li><a href="project.html" class="nav-item">Projects</a></li>
+        <li><a href="kontak.html" class="nav-item">Kontak</a></li>
+      </ul>
+      <button id="toggle-dark" class="btn-darkmode">🌙</button>
+    </nav>
+  </div>
+</header>
+
+
+  <main>
+    <section class="about">
+      <div class="about-container">
+        <img src="img/profile.jpg" alt="Foto Profil" class="profile-img" />
+
+      <div class="about-text">
+      <h2>Perkenalkan</h2>
+      <p>Nama saya <strong>Febrian</strong>Saya adalah seorang web developer yang senang mengulik tentang hal-hal seperti ini</p>
+
+      <p>Tujuan saya adalah: saya ingin membuat website yang keren-keren dan ingin menyenangkan costumer dengan apa yang meraka ingin kan</p>
+
+      <h3>Skill yang saya kuasai 🔧</h3>
+      <ul>
+        <li>✅ HTML Dasar & Struktur Web</li>
+        <li>✅ CSS Layout & Styling</li>
+        <li>🔄 JavaScript Dasar (lagi proses)</li>
+        <li>🔜 Belajar Framework (React / Tailwind)</li>
+      </ul>
+
+      <p> Anda bisa melihat project apa saja yang sudah saya bikin disini <a href="project.html">Project</a></p>
+   
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="scrollTopBtn" title="Kembali ke atas">⬆️</button>
+
+  <footer>
+    <p>&copy; 2025 Bro Dev</p>
+  </footer>
+  <script>
+  const links = document.querySelectorAll(".nav-item");
+  const path = window.location.pathname;
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === path.split("/").pop()) {
+      link.classList.add("active");
+    }
+  });
+
+  const toggleBtn = document.getElementById("toggle-dark");
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Simpan preferensi ke localStorage
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("mode", "dark");
+      toggleBtn.innerHTML = "☀️";
+    } else {
+      localStorage.setItem("mode", "light");
+      toggleBtn.innerHTML = "🌙";
+    }
+  });
+
+  // Cek preferensi user sebelumnya
+  window.addEventListener("load", () => {
+    const mode = localStorage.getItem("mode");
+    if (mode === "dark") {
+      document.body.classList.add("dark-mode");
+      toggleBtn.innerHTML = "☀️";
+    }
+  });
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollTopBtn.style.display = "block";
+    } else {
+      scrollTopBtn.style.display = "none";
+    }
+  };
+
+  scrollTopBtn.onclick = function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+</script>
+</body>
+</html>

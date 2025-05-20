@@ -1,0 +1,32 @@
+const cartContainer = document.getElementById("cart-container");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+if (cart.length === 0) {
+  cartContainer.innerHTML = "<p>Keranjang kosong 😢</p>";
+} else {
+  let html = "<ul>";
+  let total = 0;
+
+  cart.forEach((item, i) => {
+    html += `<li>
+      ${item.name} - Rp ${item.price.toLocaleString("id-ID")}
+      <button onclick="removeItem(${i})">❌</button>
+    </li>`;
+    total += item.price;
+  });
+
+  html += `</ul><p><strong>Total: Rp ${total.toLocaleString("id-ID")}</strong></p>`;
+  html += `<button onclick="clearCart()">🗑️ Kosongkan Keranjang</button>`;
+  cartContainer.innerHTML = html;
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  location.reload();
+}
+
+function clearCart() {
+  localStorage.removeItem("cart");
+  location.reload();
+}

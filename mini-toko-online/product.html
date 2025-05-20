@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detail Produk</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Detail Produk</h1>
+  </header>
+
+  <main id="product-detail" class="product-detail"></main>
+
+  <script>
+    const products = [
+      {id: 1, name: "Kopi Arabika", category: "kopi", price: 30000, image: "img/kopi-arabika.jpg", desc: "Kopi Arabika asli dari dataran tinggi."},
+      {id: 2, name: "Teh Hijau", category: "teh", price: 20000, image: "img/teh-hijau.jpg", desc: "Teh hijau alami dengan aroma menenangkan."},
+      {id: 3, name: "Snack Kacang", category: "snack", price: 15000, image: "img/snack-kacang.jpg", desc: "Kacang renyah cocok buat ngemil."},
+      {id: 4, name: "Kopi Robusta", category: "kopi", price: 25000, image: "img/kopi-robusta.jpg", desc: "Kopi Robusta dengan rasa kuat."}
+    ];
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const productId = parseInt(urlParams.get("id"));
+
+    const product = products.find(p => p.id === productId);
+    const detailEl = document.getElementById("product-detail");
+
+    if (product) {
+      detailEl.innerHTML = `
+        <div class="product-card">
+          <img src="${product.image}" alt="${product.name}">
+          <h2>${product.name}</h2>
+          <p><strong>Harga:</strong> Rp ${product.price.toLocaleString("id-ID")}</p>
+          <p>${product.desc}</p>
+          <button onclick="addToCart(${product.id})">🛒 Tambah ke Keranjang</button>
+
+        </div>
+      `;
+    } else {
+      detailEl.innerHTML = `<p>Produk tidak ditemukan.</p>`;
+    }
+
+    function addToCart(id) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Produk ditambahkan ke keranjang!");
+}
+
+  </script>
+</body>
+</html>

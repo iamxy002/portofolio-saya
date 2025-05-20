@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project | Bro Dev</title>
+  <link rel="stylesheet" href="css.css" />
+</head>
+<body>
+ <header class="main-header">
+  <div class="container">
+   <h1 class="logo"><i class="fas fa-code"></i> Iam</h1>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="about.html" class="nav-item">About</a></li>
+        <li><a href="project.html" class="nav-item">Projects</a></li>
+        <li><a href="kontak.html" class="nav-item">Kontak</a></li>
+      </ul>
+      <button id="toggle-dark" class="btn-darkmode">🌙</button>
+    </nav>
+  </div>
+</header>
+
+
+  <section class="project-section">
+  <h2>My Projects</h2>
+  <div class="project-grid">
+
+    <div class="project-card">
+      <img src="img/placeholder1.jpg" alt="">
+      <h3>Landing Page Responsive</h3>
+      <p>Halaman landing yang fleksibel...</p>
+      <a href="kopi-bro/index.html">Lihat Project</a>
+    </div>
+
+    <div class="project-card">
+      <img src="img/placeholder3.jpg" alt="">
+      <h3>Galeri Musik</h3>
+      <p>Galeri interaktif video musik...</p>
+      <a href="musik-galeri/index.html">Lihat Project</a>
+    </div>
+
+    <div class="project-card">
+      <img src="img/placeholder2.jpg" alt="">
+      <h3>Mini Toko Online</h3>
+      <p>Toko online sederhana dengan katalog produk...</p>
+      <a href="toko-kopi/index.html">Lihat Project</a>
+    </div>
+
+    <!-- Tambahin card lain kalau ada -->
+  </div>
+</section>
+
+
+
+  <footer>
+    <p>&copy; 2025 Iam</p>
+  </footer>
+
+  <script>
+  const links = document.querySelectorAll(".nav-item");
+  const path = window.location.pathname;
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === path.split("/").pop()) {
+      link.classList.add("active");
+    }
+  });
+</script>
+<script>
+  const toggleBtn = document.getElementById("toggle-dark");
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Simpan preferensi ke localStorage
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("mode", "dark");
+      toggleBtn.innerHTML = "☀️";
+    } else {
+      localStorage.setItem("mode", "light");
+      toggleBtn.innerHTML = "🌙";
+    }
+  });
+
+  // Cek preferensi user sebelumnya
+  window.addEventListener("load", () => {
+    const mode = localStorage.getItem("mode");
+    if (mode === "dark") {
+      document.body.classList.add("dark-mode");
+      toggleBtn.innerHTML = "☀️";
+    }
+  });
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollTopBtn.style.display = "block";
+    } else {
+      scrollTopBtn.style.display = "none";
+    }
+  };
+
+  scrollTopBtn.onclick = function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+</script>
+<button id="scrollTopBtn" title="Kembali ke atas">⬆️</button>
+
+</body>
+</html>

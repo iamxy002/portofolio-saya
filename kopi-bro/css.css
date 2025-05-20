@@ -1,0 +1,118 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f5f0;
+  color: #333;
+}
+
+.hero {
+  background: url('../img/bg-kopi.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: #6f4e37;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #5a3c2d;
+}
+
+.menu {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.menu-item {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 250px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.menu-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+footer {
+  background: #6f4e37;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+
+/* ... (CSS sebelumnya tetap) ... */
+
+/* Tambahan untuk responsivitas */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .menu-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-item {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 80px 15px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .menu {
+    padding: 30px 15px;
+  }
+
+  footer {
+    font-size: 14px;
+    padding: 15px;
+  }
+}

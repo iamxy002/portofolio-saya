@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toko Kopi Bro</title>
+  <link rel="stylesheet" href="css.css" />
+</head>
+<body>
+  <header>
+    <h1>Toko Kopi Bro</h1>
+    <div class="cart">
+        <div class="total">
+  💰 Total Harga: Rp <span id="total-price">0</span>
+</div>
+      🛒 Keranjang: <span id="cart-count">0</span>
+    </div>
+    <button id="reset-btn" onclick="resetCart()">Reset Keranjang</button>
+  </header>
+
+  <main class="product-list">
+    <div class="product">
+      <img src="img/produk1.jpg" alt="Kopi Arabika" />
+      <h3>Kopi Arabika</h3>
+      <p>100gr biji kopi arabika pilihan.</p>
+      <button onclick="addToCart(this)" data-price="30000">Tambah ke Keranjang</button>
+
+    </div>
+    <div class="product">
+      <img src="img/produk2.jpg" alt="Kopi Robusta" />
+      <h3>Kopi Robusta</h3>
+      <p>100gr biji kopi robusta full body.</p>
+      <button onclick="addToCart(this)" data-price="25000">Tambah ke Keranjang</button>
+    </div>
+    <div class="product">
+      <img src="img/produk3.jpg" alt="Kopi Gula Aren" />
+      <h3>Kopi Gula Aren</h3>
+      <p>Kopi hitam manis gula aren botolan.</p>
+      <button onclick="addToCart(this)" data-price="25000">Tambah ke Keranjang</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Iam</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

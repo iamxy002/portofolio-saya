@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galeri Musik Indie</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎵 Galeri Musik Indie</h1>
+    <div class="filter">
+      <button onclick="filterVideos('all')">Semua</button>
+      <button onclick="filterVideos('akustik')">Akustik</button>
+      <button onclick="filterVideos('elektronik')">Elektronik</button>
+      <button onclick="filterVideos('live')">Live</button>
+    </div>
+  </header>
+
+  <main class="video-grid">
+    <div class="video-item" data-category="akustik">
+      <iframe src="https://www.youtube.com/embed/J81LUqsLqYU" allowfullscreen></iframe>
+      <p>Akustik Chill</p>
+    </div>
+    <div class="video-item" data-category="elektronik">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen></iframe>
+      <p>Elektronik Groove</p>
+    </div>
+    <div class="video-item" data-category="live">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen></iframe>
+      <p>Live Indie Show</p>
+    </div>
+    <div class="video-item" data-category="akustik">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe>
+      <p>Akustik Jalanan</p>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
